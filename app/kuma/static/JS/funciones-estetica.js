@@ -1,6 +1,6 @@
 //Función reloj
 
-const $tiempo=document.querySelector('.tiempo');
+/*const $tiempo=document.querySelector('.tiempo');
 
 function relojDigital(){
     let f= new Date();
@@ -9,7 +9,7 @@ function relojDigital(){
 }
 setInterval(() => {
     relojDigital()
-}, 1000);
+}, 1000);*/
 
 const btnSwitch = document.querySelector('#switch');
 
@@ -18,3 +18,8 @@ btnSwitch.addEventListener('click', () => {
     btnSwitch.classList.toggle('active');
 
 })
+
+document.getElementById("btn-cancelar").addEventListener("click", function(event) {
+    event.preventDefault();  
+    window.location.href = "/inicio";  
+});
