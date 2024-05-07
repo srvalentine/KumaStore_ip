@@ -17,9 +17,9 @@ const from = 'USD';
 function cambioMoneda(){
   var select = document.getElementById('divisa');
   var option = select.value;
-  var pesos = document.getElementsByClassName('card-text2');
-  for(i = 0; i < document.getElementsByClassName('card-text2').length ; i++){
-    const amount = document.getElementsByClassName('card-text2')[i].innerHTML;
+  var pesos = document.getElementsByClassName('precio');
+  for(i = 0; i < document.getElementsByClassName('precio').length ; i++){
+    const amount = document.getElementsByClassName('precio')[i].innerHTML;
     if(option == 1){
       console.log("Divisa por defecto");
       for(var i = 0; i < pesos.length; i++){

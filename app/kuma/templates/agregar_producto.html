@@ -41,6 +41,10 @@
                         <i class="fas fa-moon"></i>
                     </span>
                 </button>
+                <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
+                    <option id="option1" name="txtClp"class="option" value="1">CLP</option>
+                    <option id="option2" name="txtUsd" class="option" value="2">USD</option>
+                </select>
             </div>
         </nav>
     </div>
@@ -189,8 +193,8 @@
                             <td>{{p.nombre}}</td>
                             <td>{{p.descripcion}}</td>
                             <td>{{p.stock}}</td>
-                            <td>{{p.precio}}</td>
-                            <td>{{p.imagen_url}}</td>
+                            <td class="precio" data-clp="{{p.precio}}">{{p.precio}}</td>
+                            <td>{{p.imagen_url.url}}</td>
                             <td class="d-flex">
                             <a href="/editarProducto/{{p.sku}}" id="boton_editar" class="btn btn-primary mx-2">Editar</a>
                             <a href="/eliminarProducto/{{p.sku}}" id="boton_eliminar" class="btn btn-danger mx-2" >Eliminar</a>
@@ -226,5 +230,6 @@
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'JS/funciones-estetica.js'%}"></script>
     <script src="{% static 'JS/funciones_toast.js' %}"></script>
+    <script src="{% static 'JS/api.js' %}"></script>
     <!--<script src="{%  static 'JS/funcionAgregarProducto.js' %}"></script>-->
 </html>
