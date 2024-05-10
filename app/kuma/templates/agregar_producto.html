@@ -28,12 +28,6 @@
                     <form action="{% url 'logout' %}"  method="post">
                         {% csrf_token %}
                         <button type="submit" id="boton_cerrar" class="btn btn-danger">Cerrar sesion</button>
-                        <div>
-                            <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
-                                <option id="option1" name="txtClp"class="option" value="1">CLP</option>
-                                <option id="option2" name="txtUsd" class="option" value="2">USD</option>
-                            </select>
-                        </div>
                     </form>
                     {% else %}
                     
@@ -176,7 +170,14 @@
                 <div class="container">
                     <div class="navbar3">
                         <h2 class="titulo_3"><strong>Lista de Productos</strong></h2>
+                        <div class="navbar-right" id="apimoneda">
+                            <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
+                                <option id="option1" name="txtClp"class="option" value="1">CLP</option>
+                                <option id="option2" name="txtUsd" class="option" value="2">USD</option>
+                            </select>
+                        </div>
                     </div>
+                    
                     <table class="table">
                         <thead>
                         <tr>

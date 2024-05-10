@@ -1,6 +1,7 @@
 @import url(https://db.onlinewebfonts.com/c/33024f503b98e8c48e99476ac919ddd3?family=Sophisto+OT+W01+DGauge);
 
 body {
+    transition: 0.3 ease all;
     margin: 0px;
     background: rgb(255, 249, 239);
     font-family: "Sophisto OT W01 DGauge";
@@ -37,6 +38,7 @@ body {
 .navbar3 {
     margin-top: 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background-color: rgb(217, 100, 33);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -46,6 +48,12 @@ body {
 .imagen_producto{
     width: 125px;
 }
+
+#apimoneda{
+    margin: 20px;
+    width: 100px;
+}
+
 .table {
     width: 100%;
     border-collapse: separate;
@@ -160,6 +168,7 @@ body.dark .titulo_inicio{
     display: flex;
     justify-content: space-between;
     height: 12vh;
+    transition: 0.3 ease all;
 }
 
 .switch{
@@ -242,13 +251,14 @@ body.dark .titulo_inicio{
 }
 
 body.dark nav{
-    background: rgb(21, 48, 65);
+    background: rgb(11, 28, 45);
     transition: 0.3s ease all;
 }
 
 body.dark{
-    background: rgb(11, 28, 45);
+    background: rgb(21, 48, 65);
     transition: 0.3s ease all;
+
 }
 
 body.dark #btn-agrega {
@@ -262,7 +272,8 @@ body.dark #boton_editar, body.dark #boton_cerrar{
 }
 
 body.dark .navbar3{
-    background-color: rgb(41, 78, 95);
+    background-color: rgb(11, 28, 45);
+    transition: 0.3 ease all;
 }
 
 body.dark .titulo_2{
@@ -287,6 +298,7 @@ body.dark .titulo_2{
 
 body.dark .fa {
     color: #fff;
+    transition: 0.3 ease all;
 }
 
 body.dark .input{
