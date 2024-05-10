@@ -28,6 +28,12 @@
                     <form action="{% url 'logout' %}"  method="post">
                         {% csrf_token %}
                         <button type="submit" id="boton_cerrar" class="btn btn-danger">Cerrar sesion</button>
+                        <div>
+                            <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
+                                <option id="option1" name="txtClp"class="option" value="1">CLP</option>
+                                <option id="option2" name="txtUsd" class="option" value="2">USD</option>
+                            </select>
+                        </div>
                     </form>
                     {% else %}
                     
@@ -41,6 +47,7 @@
                         <i class="fas fa-moon"></i>
                     </span>
                 </button>
+                
             </div>
         </nav>
     </div>
@@ -124,8 +131,8 @@
                         <div class="col">
                             <div class="input-div one">
                                 <div class="div">
-                                    <i class="fa fa-calendar">  <label for="fechaVencimientoSel">Fecha de vencimiento:</label></i>
-                                    <input name="fechaVencimientoSel" id="fechaVencimientoSel" class="form-control input"  type="date">
+                                    <i class="fa fa-calendar">  <label for="fechaGarantía">Fecha garantía:</label></i>
+                                    <input name="fechaGarantía" id="fechaGarantía" class="form-control input"  type="date">
                                 </div>
                             </div>
                         </div>
@@ -189,8 +196,8 @@
                             <td>{{p.nombre}}</td>
                             <td>{{p.descripcion}}</td>
                             <td>{{p.stock}}</td>
-                            <td>{{p.precio}}</td>
-                            <td>{{p.imagen_url}}</td>
+                            <td class="precio" data-clp="{{p.precio}}">{{p.precio}}</td>
+                            <td><img class="imagen_producto" src="{{p.imagen_url.url}}" alt=""></td>
                             <td class="d-flex">
                             <a href="/editarProducto/{{p.sku}}" id="boton_editar" class="btn btn-primary mx-2">Editar</a>
                             <a href="/eliminarProducto/{{p.sku}}" id="boton_eliminar" class="btn btn-danger mx-2" >Eliminar</a>
@@ -226,5 +233,6 @@
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'JS/funciones-estetica.js'%}"></script>
     <script src="{% static 'JS/funciones_toast.js' %}"></script>
+    <script src="{% static 'JS/api.js' %}"></script>
     <!--<script src="{%  static 'JS/funcionAgregarProducto.js' %}"></script>-->
 </html>

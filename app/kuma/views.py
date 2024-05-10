@@ -33,10 +33,10 @@ def agregarProducto(request):
     v_descripcion = request.POST['txtDescripcion']
     v_precio = request.POST['txtPrecio']
     v_image = request.FILES.get('txtImg')
-    if request.POST['fechaVencimientoSel'] == "":
-        v_fecha_vencimiento = None
+    if request.POST['fechaGarantía'] == "":
+        v_fecha_fin_garantía = None
     else:
-        v_fecha_vencimiento = request.POST['fechaVencimientoSel']
+        v_fecha_fin_garantía = request.POST['fechaGarantía']
     v_stock = request.POST['txtStock']
     v_categoria_id = request.POST.get('cmdCategoria', '')
 
@@ -46,7 +46,7 @@ def agregarProducto(request):
     else:
         messages.success(request, '.') #The argument cannot be empty
         v_categoria = Categoria.objects.get(categoria_id = v_categoria_id)
-        Producto.objects.create(sku = v_sku, nombre=v_nombre, descripcion=v_descripcion, stock=v_stock, precio=v_precio, fecha_vencimiento=v_fecha_vencimiento,categoria_id=v_categoria, imagen_url=v_image)
+        Producto.objects.create(sku = v_sku, nombre=v_nombre, descripcion=v_descripcion, stock=v_stock, precio=v_precio, fecha_fin_garantía=v_fecha_fin_garantía,categoria_id=v_categoria, imagen_url=v_image)
     
 
     

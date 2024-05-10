@@ -43,6 +43,9 @@ body {
     transition: 0.3 ease all;
 }
 
+.imagen_producto{
+    width: 125px;
+}
 .table {
     width: 100%;
     border-collapse: separate;
