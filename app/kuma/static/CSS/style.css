@@ -297,4 +297,38 @@ body.dark .input:focus{
     border-color: rgb(0, 200, 255);
 }
 
+#map {
+    height: 600px;
+    width: 70%;
+    margin: 20px auto 0;
+}
+
+.leaflet-control-geocoder.leaflet-bar {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.leaflet-control-geocoder-form {
+    width: 100%;
+}
+
+.leaflet-control-geocoder-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.leaflet-control-geocoder-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 

@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse, HttpResponse
+from rest_framework.response import Response as res
+from rest_framework.decorators import api_view as api
+from .serialicers import ProductoSerializer
 import json
 
 # Create your views here.
@@ -15,6 +18,21 @@ def cargarInicio(request):
     productos = Producto.objects.all()
     categorias = Categoria.objects.all()
     return render(request, "agregar_producto.html", {"prod": productos, "cate": categorias})
+
+@api(["GET"])
+def transformarDatos(request):
+    modelos = Producto.objects.all()
+    serializer = ProductoSerializer(modelos, many=True)
+    return res(serializer.data)
+
+def transformarDatos2(request):
+    modelos = Producto.objects.all().values()
+    modelo_list = list(modelos)
+    return JsonResponse(modelo_list, safe=False)
+
+
+def cargarMapa(request):
+    return render(request, "mapa.html")
 
 def cargarSesion(request):
     return render(request, "registration/login.html")

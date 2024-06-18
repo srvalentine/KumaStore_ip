@@ -43,6 +43,24 @@ function cambioMoneda(){
 }
 
 
+var map = L.map('map').setView([-33.4513,-70.6385], 12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+  }).addTo(map);
+
+  L.marker([-33.50384612119525, -70.60743010793385]).addTo(map)
+    .bindPopup('La sucursal atendida está aquí.')
+    .openPopup();
+
+
+
+
+
+
+
+
+
 
 
 
