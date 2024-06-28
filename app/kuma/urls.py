@@ -11,8 +11,8 @@ urlpatterns = [
     path('eliminarProducto/<sku>', views.eliminarProducto),
     path('editarProducto/<sku>', views.cargarEditarProductos),
     path('editarProductoForm', views.editarProductoForm),
-    path('registrar', views.cargarAgregarUsuario),
+    path('registrar', views.cargarAgregarUsuario, name='registrar'),
     path('agregarUsuarioForm', views.agregarUsuario),
     path('mapa', views.cargarMapa),
-    path('api/modelos/', views.transformarDatos2, name='transformarDatos')
+    path('api/modelos/', views.transformarDatos, name='transformarDatos')
 ]
