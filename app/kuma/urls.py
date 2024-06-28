@@ -13,4 +13,6 @@ urlpatterns = [
     path('editarProductoForm', views.editarProductoForm),
     path('registrar', views.cargarAgregarUsuario),
     path('agregarUsuarioForm', views.agregarUsuario),
+    path('mapa', views.cargarMapa),
+    path('api/modelos/', views.transformarDatos2, name='transformarDatos')
 ]

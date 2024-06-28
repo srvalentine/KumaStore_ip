@@ -10,6 +10,7 @@
     <link href="https://db.onlinewebfonts.com/c/33024f503b98e8c48e99476ac919ddd3?family=Sophisto+OT+W01+DGauge" rel="stylesheet">
     <!--<link rel="stylesheet" href="{% static 'CSS/style-registro.css'%}">-->
     <link rel="stylesheet" href="{% static 'CSS/style.css'%}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
     <title>Kuma! │ Agregar producto</title>
@@ -28,12 +29,6 @@
                     <form action="{% url 'logout' %}"  method="post">
                         {% csrf_token %}
                         <button type="submit" id="boton_cerrar" class="btn btn-danger">Cerrar sesion</button>
-                        <div>
-                            <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
-                                <option id="option1" name="txtClp"class="option" value="1">CLP</option>
-                                <option id="option2" name="txtUsd" class="option" value="2">USD</option>
-                            </select>
-                        </div>
                     </form>
                     {% else %}
                     
@@ -58,6 +53,7 @@
 <body>
 
     {% if user.is_authenticated %}
+    
     <div class="nav-container2">
         <div class="navbar2">
             <h2 class="titulo_2">Agregar Producto</h2>
@@ -176,7 +172,14 @@
                 <div class="container">
                     <div class="navbar3">
                         <h2 class="titulo_3"><strong>Lista de Productos</strong></h2>
+                        <div class="navbar-right" id="apimoneda">
+                            <select onchange="cambioMoneda()" name="divisa" id="divisa" class="form-select">
+                                <option id="option1" name="txtClp"class="option" value="1">CLP</option>
+                                <option id="option2" name="txtUsd" class="option" value="2">USD</option>
+                            </select>
+                        </div>
                     </div>
+                    
                     <table class="table">
                         <thead>
                         <tr>
@@ -209,6 +212,10 @@
                     <br>
                     <br>
                 </div>
+                <div id="botones_guardar">
+                    <a id="btn-agrega" href="mapa" class="btn btn-primary">Ver sucursal atendida</a>
+                    <a id="btn-agrega" href="{% url 'transformarDatos' %}" class="btn btn-primary">Enviar datos a tienda</a>
+                </div>
                 {%else%}
                 <div class="titulo_principal">
                     <h1 class="titulo_inicio">Inicia sesion para ver y modificar productos</h1>
@@ -221,7 +228,9 @@
             </form>
         </div>
         </div>
+        
     </div>
+    
     
     </footer>
                 
@@ -233,6 +242,11 @@
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'JS/funciones-estetica.js'%}"></script>
     <script src="{% static 'JS/funciones_toast.js' %}"></script>
-    <script src="{% static 'JS/api.js' %}"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="{% static 'JS/api.js'%}"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
     <!--<script src="{%  static 'JS/funcionAgregarProducto.js' %}"></script>-->
 </html>
